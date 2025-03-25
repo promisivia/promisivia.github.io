@@ -1,119 +1,349 @@
 <!DOCTYPE html>
-<!--
-    Plain-Academic by Vasilios Mavroudis
-    Released under the Simplified BSD License/FreeBSD (2-clause) License.
-    https://github.com/mavroudisv/plain-academic
--->
-
 <html lang="en">
 <head>
   <title>Fangnuo Wu</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="google-site-verification" content="I3wfUjVDeXvqK2Llc99XMclfdhSX9gLgHs1j6NzLPYU" />
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  <link href='https://fonts.googleapis.com/css?family=Oswald:700' rel='stylesheet' type='text/css'>
+  <!-- 添加 Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- 添加 Font Awesome 图标 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <!-- 添加 Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#2b6cb0',
+            secondary: '#4a5568',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    body { 
+      font-family: 'Inter', sans-serif;
+      @apply bg-gray-50 dark:bg-gray-900;
+    }
+    .nav-link { 
+      @apply text-gray-600 dark:text-gray-300 transition-colors duration-300;
+    }
+    .nav-link:hover { 
+      @apply text-primary dark:text-blue-400;
+    }
+    .profile-image { 
+      border-radius: 50%; 
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      @apply dark:shadow-gray-800;
+    }
+    .publication-card { 
+      transition: transform 0.3s;
+      @apply dark:bg-gray-800 dark:border-gray-700;
+    }
+    .publication-card:hover { 
+      transform: translateY(-2px);
+      @apply dark:shadow-gray-700;
+    }
+    .mobile-menu {
+      @apply fixed inset-0 bg-white dark:bg-gray-900 z-50 transform transition-transform duration-300 ease-in-out;
+    }
+    .mobile-menu.hidden {
+      transform: translateX(100%);
+    }
+  </style>
 </head>
 <body>
+  <!-- Dark Mode Toggle -->
+  <button id="darkModeToggle" class="fixed top-4 right-4 p-2 rounded-full bg-gray-200 dark:bg-gray-700 z-50">
+    <i class="fas fa-moon dark:hidden"></i>
+    <i class="fas fa-sun hidden dark:block"></i>
+  </button>
 
-
-<!-- Navigation -->
-	<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
-	  <div class="container">
-		<div class="navbar-header">
-		  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-		</div>
-
-		<!-- Collect the nav links, forms, and other content for toggling -->
-		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-		  <ul class="nav navbar-nav">
-				  <li><a href="index.html">Home</a></li>
-				  <!-- <li><a href="#">Projects</a></li>
-				  <li><a href="#publications">Publications</a></li>  -->
-				  <!-- <li><a href="#">CV</a></li>  -->
-		  </ul>
-		</div>
-	  </div>
-	</nav>
-  
-  <!-- Page Content -->
-    <div class="container">
-
-        <div class="row">
-
-            <!-- Entries Column -->
-            <div class="col-md-8" style="height: 100vh;">
-                
-                <!-- Main Image -->
-                <!-- <img class="img-responsive" src="photo.gif" alt=""><br> -->
-                
-                <div style="margin-top:3%; text-align:justify;">                
-					<h1><b>About me</b></h1>
-					
-					<p>I am a second year PhD student in <a href="https://ipads.se.sjtu.edu.cn/">IPADS</a>, SJTU. My advisor is Prof. Haibo Chen and Mingkai Dong. My research interests include Operating System Design and Storage System.</p>
-					<h1><b>Education</b></h1>
-          <li>2018.09 - 2022.06, B.S. School of Software, Shanghai Jiao Tong University</li> 
-          <li>2022.09 - now,  Ph.D candidate, School of Software, Shanghai Jiao Tong University</li> 
-
-          <h1><b>Publications</b></h1>
-          <b>[SOSP]</b> TreeSLS: A Tree-structured Microkernel with Efficient Whole-system Persistence on NVM. <b>Fangnuo Wu</b>, Mingkai Dong, Gequan Mo, Haibo Chen. The 29th ACM Symposium on Operating Systems Principles (SOSP 2023). Koblenz, Germany, October 2023.<br> 
-          <b>[FAST]</b> HTMFS: Strong Consistency Comes for Free with Hardware Transactional Memory in Persistent Memory File Systems. Jifei Yi, Mingkai Dong, <b>Fangnuo Wu</b>, Haibo Chen. The 20th USENIX Conference on File and Storage Technologies (FAST 2022). Santa Clara, CA, USA, February 22-24, 2022.</li> 
-                </div>
-            </div> 
-
-            <!-- Contact Info on the Sidebar -->
-            <div class="col-md-4">
-                <img class="img-responsive" src="fangnuo_wu.jpg" alt=""><br>
-                <div style="font-family: 'Oswald', sans-serif; font-size: 32px;"><b>Fangnuo Wu (吴方诺)</b></div><br>
-                <p><b>wufangnuo at sjtu.edu.com</b><br>
-                <p>second-year PhD student<br>
-                Shanghai Jiao Tong University<br>
-                Shanghai, China<br>
-                </p>
-            </div>
-            
-            
-            <!-- Links on the Sidebar -->
-            <div class="col-md-4" style="margin-top:2%">
-              <!-- <dd><a href="#">Google Scholar</a></dd> 
-              <dd><a href="#">Twitter</a></dd>
-              <dd><a href="#">LinkedIn</a></dd> -->
-              <dd><a href="https://ipads.se.sjtu.edu.cn/zh/pub/members/fangnuo_wu/">中文主页</a></dd>
-            </div>
-            
-            
-            <!-- Publications -->
-            <div class="col-md-8" style="height: 100vh;">    
-                <h2 id="publications">Publications</h2>
-                
-                <strong>Peer-reviewed</strong><br/>
-                <ul>
-                <li class="paper" words="add, your, keywords, here"><a href="#">Full title</a> Names of the authors</li>
-                </ul>
-            
-                <strong>Technical Reports</strong><br/>
-                <ul>
-                <li class="paper" words="add, your, keywords, here"><a href="#">Full title</a>. Details of the report</li>
-                </ul>
-            </div>
-
-            
+  <!-- Navigation -->
+  <nav class="bg-white dark:bg-gray-800 shadow-sm fixed w-full z-40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16">
+        <div class="flex">
+          <div class="flex-shrink-0 flex items-center">
+            <span class="text-xl font-bold text-gray-800 dark:text-white">FW</span>
+          </div>
+          <!-- Desktop Navigation -->
+          <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
+            <a href="#about" class="nav-link inline-flex items-center px-1 pt-1 border-b-2 border-transparent hover:border-primary">
+              <i class="fas fa-user mr-2"></i>About
+            </a>
+            <a href="#education" class="nav-link inline-flex items-center px-1 pt-1 border-b-2 border-transparent hover:border-primary">
+              <i class="fas fa-graduation-cap mr-2"></i>Education
+            </a>
+            <a href="#publications" class="nav-link inline-flex items-center px-1 pt-1 border-b-2 border-transparent hover:border-primary">
+              <i class="fas fa-book mr-2"></i>Publications
+            </a>
+            <a href="#projects" class="nav-link inline-flex items-center px-1 pt-1 border-b-2 border-transparent hover:border-primary">
+              <i class="fas fa-project-diagram mr-2"></i>Projects
+            </a>
+            <a href="#awards" class="nav-link inline-flex items-center px-1 pt-1 border-b-2 border-transparent hover:border-primary">
+              <i class="fas fa-trophy mr-2"></i>Awards
+            </a>
+          </div>
         </div>
-
-
+        <!-- Mobile menu button -->
+        <div class="flex items-center sm:hidden">
+          <button id="mobileMenuButton" class="text-gray-600 dark:text-gray-300">
+            <i class="fas fa-bars text-xl"></i>
+          </button>
+        </div>
+      </div>
     </div>
-    <!-- /.container -->
-    
-    <!-- Other people may like it too! -->
-    <a style="color:#b5bec9;font-size:0.8em; float:right;" href="https://github.com/mavroudisv/plain-academic">Plain Academic</a> 
-    
-</body>
+  </nav>
 
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="mobile-menu hidden">
+    <div class="flex justify-end p-4">
+      <button id="closeMobileMenu" class="text-gray-600 dark:text-gray-300">
+        <i class="fas fa-times text-xl"></i>
+      </button>
+    </div>
+    <div class="flex flex-col items-center space-y-4">
+      <a href="#about" class="nav-link text-xl">
+        <i class="fas fa-user mr-2"></i>About
+      </a>
+      <a href="#education" class="nav-link text-xl">
+        <i class="fas fa-graduation-cap mr-2"></i>Education
+      </a>
+      <a href="#publications" class="nav-link text-xl">
+        <i class="fas fa-book mr-2"></i>Publications
+      </a>
+      <a href="#projects" class="nav-link text-xl">
+        <i class="fas fa-project-diagram mr-2"></i>Projects
+      </a>
+      <a href="#awards" class="nav-link text-xl">
+        <i class="fas fa-trophy mr-2"></i>Awards
+      </a>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 pt-24">
+    <!-- Profile Header -->
+    <div class="text-center mb-12">
+      <img class="profile-image w-32 h-32 mx-auto mb-6" src="./img/fangnuo_wu.jpg" alt="Fangnuo Wu">
+      <h1 class="text-3xl font-bold mb-2 dark:text-white">Fangnuo Wu</h1>
+      <p class="text-xl text-gray-600 dark:text-gray-300 mb-4">吴方诺</p>
+      <div class="flex justify-center space-x-4 text-gray-600 dark:text-gray-300">
+        <a href="mailto:wufangnuo@sjtu.edu.com" class="hover:text-primary dark:hover:text-blue-400">
+          <i class="fas fa-envelope mr-2"></i>wufangnuo@sjtu.edu.com
+        </a>
+        <span class="mx-2">|</span>
+        <a href="https://ipads.se.sjtu.edu.cn/zh/pub/members/fangnuo_wu/" class="hover:text-primary dark:hover:text-blue-400">
+          <i class="fas fa-globe mr-2"></i>中文主页
+        </a>
+        <span class="mx-2">|</span>
+        <a href="https://github.com/promisivia" class="hover:text-primary dark:hover:text-blue-400">
+          <i class="fab fa-github mr-2"></i>GitHub
+        </a>
+        <span class="mx-2">|</span>
+        <a href="https://scholar.google.com/citations?user=cVZeqXkAAAAJ&hl=en&oi=sra" class="hover:text-primary dark:hover:text-blue-400">
+          <i class="fas fa-graduation-cap mr-2"></i>Google Scholar
+        </a>
+      </div>
+    </div>
+
+    <!-- Content Sections -->
+    <div class="space-y-8">
+      <!-- About Section -->
+      <section id="about" class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6">
+        <h2 class="text-2xl font-bold mb-4 flex items-center dark:text-white">
+          <i class="fas fa-user mr-2"></i>About me
+        </h2>
+        <p class="text-gray-700 dark:text-gray-300">
+          I am a third year PhD student in <a href="https://ipads.se.sjtu.edu.cn/" class="text-primary dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300">IPADS</a>, SJTU. 
+          My advisor is <a href="https://ipads.se.sjtu.edu.cn/pub/members/haibo_chen" class="text-primary dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300">Prof. Haibo Chen</a> and <a href="https://dong.mk/" class="text-primary dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300">Mingkai Dong</a>. 
+          My research interests include Operating System Design and Storage System.
+        </p>
+      </section>
+
+      <!-- Education Section -->
+      <section id="education" class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6">
+        <h2 class="text-2xl font-bold mb-4 flex items-center dark:text-white">
+          <i class="fas fa-graduation-cap mr-2"></i>Education
+        </h2>
+        <ul class="space-y-4">
+          <li class="flex items-start">
+            <i class="fas fa-circle text-primary dark:text-blue-400 mt-2 mr-3"></i>
+            <div>
+              <p class="font-semibold dark:text-white">Ph.D candidate (2022.09 - Present)</p>
+              <p class="text-gray-600 dark:text-gray-300">School of Software, Shanghai Jiao Tong University</p>
+            </div>
+          </li>
+          <li class="flex items-start">
+            <i class="fas fa-circle text-primary dark:text-blue-400 mt-2 mr-3"></i>
+            <div>
+              <p class="font-semibold dark:text-white">B.S. (2019.09 - 2023.06)</p>
+              <p class="text-gray-600 dark:text-gray-300">School of Software, Shanghai Jiao Tong University</p>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Publications Section -->
+      <section id="publications" class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6">
+        <h2 class="text-2xl font-bold mb-4 flex items-center dark:text-white">
+          <i class="fas fa-book mr-2"></i>Publications
+        </h2>
+        <div class="space-y-6">
+          <div class="publication-card p-4 border rounded-lg hover:shadow-md">
+            <div class="flex items-center mb-2">
+              <span class="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs font-medium px-2.5 py-0.5 rounded">SOSP 2023</span>
+              <a href="https://dl.acm.org/doi/abs/10.1145/3600006.3613160" class="ml-2 text-xs text-primary dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300">
+                <i class="fas fa-link mr-1"></i>Paper
+              </a>
+            </div>
+            <h3 class="font-semibold mb-2 dark:text-white">TreeSLS: A Tree-structured Microkernel with Efficient Whole-system Persistence on NVM</h3>
+            <p class="text-gray-600 dark:text-gray-300">
+              <b>Fangnuo Wu</b>, Mingkai Dong, Gequan Mo, Haibo Chen.<br>
+              The 29th ACM Symposium on Operating Systems Principles (SOSP 2023).<br>
+              Koblenz, Germany, October 2023. (<b>Best Paper Award</b>)
+            </p>
+          </div>
+          <div class="publication-card p-4 border rounded-lg hover:shadow-md">
+            <div class="flex items-center mb-2">
+              <span class="bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 text-xs font-medium px-2.5 py-0.5 rounded">FAST 2022</span>
+              <a href="https://www.usenix.org/conference/fast22/presentation/yi-htmfs" class="ml-2 text-xs text-primary dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300">
+                <i class="fas fa-link mr-1"></i>Paper
+              </a>
+            </div>
+            <h3 class="font-semibold mb-2 dark:text-white">HTMFS: Strong Consistency Comes for Free with Hardware Transactional Memory in Persistent Memory File Systems</h3>
+            <p class="text-gray-600 dark:text-gray-300">
+              Jifei Yi, Mingkai Dong, <b>Fangnuo Wu</b>, Haibo Chen.<br>
+              The 20th USENIX Conference on File and Storage Technologies (FAST 2022).<br>
+              Santa Clara, CA, USA, February 22-24, 2022.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects Section -->
+      <section id="projects" class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6">
+        <h2 class="text-2xl font-bold mb-4 flex items-center dark:text-white">
+          <i class="fas fa-project-diagram mr-2"></i>Projects
+        </h2>
+        <div class="space-y-6">
+          <div class="project-card p-4 border rounded-lg hover:shadow-md">
+            <h3 class="font-semibold mb-2 dark:text-white">Storage System with Non-volatile Memory (NVM)</h3>
+            <p class="text-gray-500 dark:text-gray-400 mb-2">2021.06 - 2023.10</p>
+            <p class="text-gray-600 dark:text-gray-300">
+              Non-volatile Memory (NVM) combines the high performance of memory devices with the persistence of storage devices. 
+              This project focuses on designing new storage systems and operating systems based on NVM to improve system performance and data persistence. 
+              Key achievements include:
+            </p>
+            <p class="text-gray-600 dark:text-gray-300">
+              (1) HTMFS (FAST 22): The first file system leveraging NVM eADR hardware features to achieve low-overhead high-consistency file system. 
+            </p>
+            <p class="text-gray-600 dark:text-gray-300">
+              (2) TreeSLS (SOSP 23): The first whole-system persistent operating system based on NVM, replacing the traditional memory/disk two-layer storage structure with a single-layer storage structure.
+            </p>
+          </div>
+          <div class="project-card p-4 border rounded-lg hover:shadow-md">
+            <h3 class="font-semibold mb-2 dark:text-white">System Research Based on New Interconnection Bus</h3>
+            <p class="text-gray-500 dark:text-gray-400 mb-2">2024.01 - Present</p>
+            <p class="text-gray-600 dark:text-gray-300">
+              New interconnection buses (such as CXL) enable direct memory access between multiple machines. 
+              This project focuses on leveraging new interconnection bus capabilities to design new underlying synchronization mechanisms, 
+              system critical components (such as file systems, object storage services), and build unified distributed operating systems 
+              to improve application performance and overall cluster resource utilization.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Awards Section -->
+      <section id="awards" class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6">
+        <h2 class="text-2xl font-bold mb-4 flex items-center dark:text-white">
+          <i class="fas fa-trophy mr-2"></i>Honors and Awards
+        </h2>
+        <ul class="space-y-4">
+          <li class="flex items-start">
+            <i class="fas fa-award text-primary dark:text-blue-400 mt-2 mr-3"></i>
+            <div>
+              <p class="font-semibold dark:text-white">National Natural Science Foundation Youth Student Basic Research Project (PhD Student)</p>
+              <p class="text-gray-500 dark:text-gray-400">December 2024</p>
+            </div>
+          </li>
+          <li class="flex items-start">
+            <i class="fas fa-award text-primary dark:text-blue-400 mt-2 mr-3"></i>
+            <div>
+              <p class="font-semibold dark:text-white">Outstanding Teaching Assistant of Shanghai Jiao Tong University (Top 1%)</p>
+              <p class="text-gray-500 dark:text-gray-400">May 2024</p>
+            </div>
+          </li>
+          <li class="flex items-start">
+            <i class="fas fa-award text-primary dark:text-blue-400 mt-2 mr-3"></i>
+            <div>
+              <p class="font-semibold dark:text-white">Best Paper Award at SOSP 2023</p>
+              <p class="text-gray-500 dark:text-gray-400">November 2023</p>
+            </div>
+          </li>
+          <li class="flex items-start">
+            <i class="fas fa-award text-primary dark:text-blue-400 mt-2 mr-3"></i>
+            <div>
+              <p class="font-semibold dark:text-white">National Scholarship of Shanghai Jiao Tong University (Top 1%)</p>
+              <p class="text-gray-500 dark:text-gray-400">September 2023</p>
+            </div>
+          </li>
+          <li class="flex items-start">
+            <i class="fas fa-award text-primary dark:text-blue-400 mt-2 mr-3"></i>
+            <div>
+              <p class="font-semibold dark:text-white">Outstanding Graduates of Shanghai Jiao Tong University (Top 3%)</p>
+              <p class="text-gray-500 dark:text-gray-400">May 2022</p>
+            </div>
+          </li>
+        </ul>
+      </section>
+    </div>
+  </div>
+
+  <script>
+    // Dark mode toggle
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    const html = document.documentElement;
+    
+    // Check for saved dark mode preference
+    if (localStorage.getItem('darkMode') === 'true' || 
+        (!localStorage.getItem('darkMode') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      html.classList.add('dark');
+    }
+
+    darkModeToggle.addEventListener('click', () => {
+      html.classList.toggle('dark');
+      localStorage.setItem('darkMode', html.classList.contains('dark'));
+    });
+
+    // Mobile menu
+    const mobileMenuButton = document.getElementById('mobileMenuButton');
+    const closeMobileMenu = document.getElementById('closeMobileMenu');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.remove('hidden');
+    });
+
+    closeMobileMenu.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
+    });
+
+    // Close mobile menu when clicking a link
+    document.querySelectorAll('#mobileMenu a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+  </script>
+</body>
 </html>
