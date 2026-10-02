@@ -51,6 +51,24 @@
       transform: translateY(-2px);
       @apply dark:shadow-gray-700;
     }
+    .award-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.375rem;
+      padding: 0.25rem 0.625rem;
+      border: 1px solid #f59e0b;
+      border-radius: 0.375rem;
+      background-color: #fef3c7;
+      color: #92400e;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+    .award-text { color: #92400e; }
+    .dark .award-badge {
+      background-color: #422006;
+      color: #fde68a;
+    }
+    .dark .award-text { color: #fde68a; }
     .mobile-menu {
       @apply fixed inset-0 bg-white dark:bg-gray-900 z-50 transform transition-transform duration-300 ease-in-out;
     }
@@ -209,8 +227,9 @@
             </p>
           </div>
           <div class="publication-card p-4 border rounded-lg hover:shadow-md">
-            <div class="flex items-center mb-2">
+            <div class="flex flex-wrap items-center gap-2 mb-2">
               <span class="bg-indigo-100 dark:bg-indigo-900 text-indigo-800 dark:text-indigo-200 text-xs font-medium px-2.5 py-0.5 rounded">BigMem 2026</span>
+              <span class="award-badge"><i class="fas fa-trophy" aria-hidden="true"></i>Best Abstract Award</span>
             </div>
             <h3 class="font-semibold mb-2 dark:text-white">CXL-SDK: Building a Software Development Kit for CXL Shared Memory</h3>
             <p class="text-gray-600 dark:text-gray-300">
@@ -224,7 +243,8 @@
             </div>
             <h3 class="font-semibold mb-2 dark:text-white">RelayAgent: Mobile Task Automation by Delegating Subtasks to In-App AI Assistants</h3>
             <p class="text-gray-600 dark:text-gray-300">
-              Jingsheng Yan, <b>Fangnuo Wu</b>, Mingkai Dong, Haibo Chen.<br>
+              Jingsheng Yan<sup>*</sup>, <b>Fangnuo Wu<sup>*</sup></b>, Mingkai Dong, Haibo Chen.<br>
+              <span class="text-sm">* Co-first authors (equal contribution).</span><br>
               Preprint, 2026. <a href="https://github.com/ShadowNearby/RelayAgent/blob/main/paper/relayagent.pdf" class="text-primary dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300">[paper]</a> · <a href="https://github.com/ShadowNearby/RelayAgent" class="text-primary dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300">[code]</a>
             </p>
           </div>
@@ -259,13 +279,14 @@
             </p>
           </div>
           <div class="publication-card p-4 border rounded-lg hover:shadow-md">
-            <div class="flex items-center mb-2">
+            <div class="flex flex-wrap items-center gap-2 mb-2">
               <span class="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs font-medium px-2.5 py-0.5 rounded">SOSP 2023</span>
+              <span class="award-badge"><i class="fas fa-trophy" aria-hidden="true"></i>Best Paper Award</span>
             </div>
             <h3 class="font-semibold mb-2 dark:text-white">TreeSLS: A Whole-system Persistent Microkernel with Tree-structured State Checkpoint on NVM</h3>
             <p class="text-gray-600 dark:text-gray-300">
               <b>Fangnuo Wu</b>, Mingkai Dong, Gequan Mo, Haibo Chen.<br>
-              The 29th ACM Symposium on Operating Systems Principles, Koblenz, Germany, October 2023. (<b>Best Paper Award</b>) <a href="https://dl.acm.org/doi/abs/10.1145/3600006.3613160" class="text-primary dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300">[paper]</a> · <a href="https://ipads.se.sjtu.edu.cn:1312/opensource/treesls" class="text-primary dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300">[code]</a> · <a href="https://www.youtube.com/watch?v=1gwI-5uDfj8&list=PLl-7Fg11LUZdPuOXLQI2ioREMH9Gyl7Bu&index=2" class="text-primary dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300">[talk]</a>
+              The 29th ACM Symposium on Operating Systems Principles, Koblenz, Germany, October 2023. <a href="https://dl.acm.org/doi/abs/10.1145/3600006.3613160" class="text-primary dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300">[paper]</a> · <a href="https://ipads.se.sjtu.edu.cn:1312/opensource/treesls" class="text-primary dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300">[code]</a> · <a href="https://www.youtube.com/watch?v=1gwI-5uDfj8&list=PLl-7Fg11LUZdPuOXLQI2ioREMH9Gyl7Bu&index=2" class="text-primary dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300">[talk]</a>
             </p>
           </div>
           <div class="publication-card p-4 border rounded-lg hover:shadow-md">
@@ -340,7 +361,7 @@
           <li class="flex items-start">
             <i class="fas fa-award text-primary dark:text-blue-400 mt-2 mr-3"></i>
             <div>
-              <p class="font-semibold dark:text-white">Best Paper Award at SOSP 2023 (sole first author)</p>
+              <p class="font-semibold award-text">Best Paper Award at SOSP 2023 (sole first author)</p>
               <p class="text-gray-500 dark:text-gray-400">November 2023</p>
             </div>
           </li>
